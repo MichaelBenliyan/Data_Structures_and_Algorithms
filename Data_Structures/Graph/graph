@@ -1,0 +1,50 @@
+class UndirectedGraph: 
+    def __init__(self, vertex_list=[], edges=[]) -> None:
+        self.vertices = vertex_list
+        self.adjacency_list = {}
+        for vertex in self.vertices: 
+            self.adjacency_list[vertex] = set()
+        for edge in edges: 
+            self.adjacency_list[edge[0]].add(edge[1])
+            self.adjacency_list[edge[1]].add(edge[0])
+            
+    def add_vertex(self, vertex): 
+        self.vertices.append(vertex)
+        self.adjacency_list[vertex] = set()
+        
+    def add_edge(self, edge): 
+        self.adjacency_list[edge[0]].add(edge[1])
+        self.adjacency_list[edge[1]].add(edge[0])
+        
+    def share_edge(self, vertex_1, vertex_2): 
+        return vertex_2 in self.adjacency_list[vertex_1]
+    
+    def all_edges(self, vertex): 
+        return self.adjacency_list[vertex]
+    
+    def remove_vertex(self, vertex): 
+        self.vertices.remove(vertex)
+        del self.adjacency_list[vertex]
+        for key in self.adjacency_list: 
+            self.adjacency_list[key].discard(vertex)
+    
+    def remove_edge(self, edge):
+        self.adjacency_list[edge[0]].discard(edge[1])
+        self.adjacency_list[edge[1]].discard(edge[0])    
+        
+    def all_reachable(self, vertex): 
+        pass
+    
+    def is_reachable(self, vertex_1, vertex_2): 
+        pass
+    
+    def shortest_path(self, vertex_1, vertex_2): 
+        pass
+    
+    
+my_graph = UndirectedGraph()
+
+        
+
+    
+    
