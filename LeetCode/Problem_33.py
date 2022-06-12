@@ -6,13 +6,15 @@ class Solution:
         while (end-start+1) > 3: 
             if nums[m_i] == target: 
                 return m_i
-            if nums[m_i] > nums[start]: #left sorted: greater than everything before 
+            #left sorted: greater than everything before 
+            if nums[m_i] > nums[start]: 
                 if nums[start] <= target <= nums[m_i]:  
                     end = m_i 
                 else: 
                     start = m_i
                 m_i = ((end-start+1) // 2) + start
-            else:                       #right sorted: less than everything after 
+            #right sorted: less than everything after 
+            else:                       
                 if nums[m_i] <= target <= nums[end]: 
                     start = m_i
                 else: 
