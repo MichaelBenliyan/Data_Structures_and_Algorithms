@@ -1,5 +1,5 @@
 class Solution:
-    def search(self, nums: List[int], target: int) -> int:
+    def search(self, nums, target):
         start = 0
         end = len(nums) - 1 
         m_i = ((end-start+1) // 2) + start
